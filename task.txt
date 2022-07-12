@@ -77,3 +77,6 @@ API nuoroda: https://jsonplaceholder.typicode.com
 Papildoma: 
 11.5. Search puslapyje turi būti paieškos forma, kuri veikia neperkraunant puslapio.
 11.6. Sukurti filtravimo galimybę iš dalies frazės, o ne tik pagal tikslią frazę.
+
+https://github.com/typicode/json-server#filter
+https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#checking_that_the_fetch_was_successful
