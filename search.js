@@ -69,6 +69,7 @@ function renderAllUsers(searchText) {
             content: user.name,
             href: `./user.html?user_id=${user.id}`,
             parentElement: usersList,
+            class: 'search-item',
           })
         })
       } else {
@@ -82,6 +83,7 @@ function renderAllUsers(searchText) {
                   content: user.name,
                   href: `./user.html?user_id=${user.id}`,
                   parentElement: usersList,
+                  class: 'search-item',
                 })
               })
             } else {
@@ -95,6 +97,7 @@ function renderAllUsers(searchText) {
                         content: user.name,
                         href: `./user.html?user_id=${user.id}`,
                         parentElement: usersList,
+                        class: 'search-item',
                       })
                     })
                   } else {
@@ -120,6 +123,7 @@ function renderAllPosts(searchText) {
             content: post.title,
             href: `./post.html?post_id=${post.id}`,
             parentElement: postsList,
+            class: 'search-item',
           }
           renderListElement(postData);
         })
@@ -142,7 +146,8 @@ function renderAllAlbums(searchText) {
           let albumData = {
             content: album.title,
             href: `./album.html?album_id=${album.id}`,
-            parentElement: albumsList
+            parentElement: albumsList,
+            class: 'search-item',
           };
           renderListElement(albumData);
         })
@@ -153,90 +158,4 @@ function renderAllAlbums(searchText) {
     })
 }
 
-function renderListElement(data) {
-  let itemElement = document.createElement('li');
-  itemElement.classList.add('search-item');
-  itemElement.innerHTML = `<a href="${data.href}">${data.content}</a>`;
-  data.parentElement.append(itemElement);
-}
-
 init();
-
-
-// function test(num) {
-//   if (num < 0) {
-//     console.log('blogas skaicius');
-//   } else {
-
-//     if (num < 18) {
-//       console.log('negalima pirkti');
-//     } else {
-      
-//       console.log('pirkti gali');
-
-//       if (num > 120) {
-//         console.log('amzius per didelis')
-//       } else {
-//         console.log('netinkami duomenys')
-//       }
-//     }
-//   }
-// }
-
-// function test(num) {
-//   if (num < 0) {
-//     console.log('blogas skaicius');
-//     return;
-//   } 
-  
-//   if (num < 18) {
-//     console.log('negalima pirkti');
-//     return;
-//   }
-
-//   if (num < 120) {
-//     console.log('Pirkti galima');
-//     return;
-//   }
-
-//   // if (num >= 120) {
-//   //   console.log('skaicius per didelis');
-//   // } else {
-//   //   console.log('ERROR');
-//   // }
-
-//   if (num >= 120) {
-//     console.log('skaicius per didelis');
-//     return;
-//   } 
-
-//   console.log('ERROR');
-// }
-
-// function test(num) {
-//   if (num < 0) {
-//     return 'blogas skaicius';
-//   } 
-  
-//   if (num < 18) {
-//     return 'negalima pirkti';
-//   }
-
-//   if (num < 120) {
-//     return 'Pirkti galima';
-//   }
-
-//   // if (num >= 120) {
-//   //   console.log('skaicius per didelis');
-//   // } else {
-//   //   console.log('ERROR');
-//   // }
-
-//   if (num >= 120) {
-//     return 'skaicius per didelis';
-//   } 
-
-//   return 'ERROR';
-// }
-
-// console.log(test(-5));
