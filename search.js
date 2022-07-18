@@ -1,3 +1,8 @@
+import { renderListElement } from './functions.js';
+import { headerView } from './headerView.js';
+
+headerView();
+
 let searchResults = document.querySelector('#search-results');
 let usersList = document.createElement('ul');
 let usersListTitle = document.createElement('h3');

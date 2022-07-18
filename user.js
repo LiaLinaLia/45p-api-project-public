@@ -1,3 +1,8 @@
+import { firstLetterUpperCase, renderListElement } from './functions.js';
+import { headerView } from './headerView.js';
+
+headerView();
+
 let queryParams = document.location.search;
 let urlParams = new URLSearchParams(queryParams);
 let userId = urlParams.get('user_id');

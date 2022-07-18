@@ -1,3 +1,8 @@
+import { firstLetterUpperCase, renderSingleComment } from './functions.js';
+import headerView from './headerView.js';
+
+headerView();
+
 let postsWrapper = document.querySelector('#posts-wrapper');
 let albumsWrapper = document.querySelector('#albums-wrapper');
 
