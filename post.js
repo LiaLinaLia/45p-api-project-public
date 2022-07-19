@@ -1,3 +1,8 @@
+import { firstLetterUpperCase, renderSingleComment } from './functions.js';
+import headerView from './headerView.js';
+
+headerView();
+
 let queryParams = document.location.search;
 let urlParams = new URLSearchParams(queryParams);
 let postId = urlParams.get('post_id');
@@ -7,7 +12,7 @@ fetch('https://jsonplaceholder.typicode.com/posts/' + postId)
   .then(post => {
     let postWrapper = document.querySelector('#post-wrapper');
 
-    let updatedTitle = post.title[0].toUpperCase() + post.title.slice(1);
+    let updatedTitle = firstLetterUpperCase(post.title);
 
     let postItem = document.createElement('div');
     postItem.classList.add('post-item');
@@ -42,15 +47,8 @@ fetch('https://jsonplaceholder.typicode.com/posts/' + postId)
     fetch(`https://jsonplaceholder.typicode.com/posts/${post.id}/comments`)
       .then(res => res.json())
       .then(comments => {
-        comments.map(comment => {
-          let commentItem = document.createElement('div');
-          commentItem.classList.add('comment-item');
-
-          commentItem.innerHTML = `<h3>${comment.name}</h3>
-                                    <span>Comment by: ${comment.email}</span>
-                                    <p>${comment.body}</p>`
-
-          commentsWrapper.prepend(commentItem);              
+        comments.map(singleComment => {
+          renderSingleComment(singleComment, commentsWrapper);
         })
       })
   })
