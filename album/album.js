@@ -1,9 +1,9 @@
-import headerView from './headerView.js';
+import headerView from '../headerView.js';
 import album from './albumView.js';
+import { getPhotosByAlbumId, getExpandedAlbumById } from './albumController.js';
 
-headerView();
-
-function init() {
+async function init() {
+  headerView();
   let queryParams = document.location.search;
   let urlParams = new URLSearchParams(queryParams);
   let albumId = urlParams.get('album_id');
@@ -19,36 +19,37 @@ function init() {
   }
 
   if (albumTitle && userId && userName) {
-    fetch(`https://jsonplaceholder.typicode.com/albums/${albumId}/photos`)
-      .then(res => res.json())
-      .then(albumPhotos => {
+    // album({
+    //   photos: await getPhotosByAlbumId(albumId), 
+    //   albumTitle, 
+    //   userId, 
+    //   userName,
+    // });
 
-        let dataObj = {
-          photos: albumPhotos, 
-          albumTitle, 
-          userId, 
-          userName,
-        }
+    let albumPhotos = await getPhotosByAlbumId(albumId);
 
-        album(dataObj);
-      });
+    let dataObj = {
+      photos: albumPhotos, 
+      albumTitle, 
+      userId, 
+      userName,
+    }
+
+    album(dataObj);
     return;
   }
 
-  fetch(`https://jsonplaceholder.typicode.com/albums/${albumId}?_expand=user&_embed=photos`)
-    .then(res => res.json())
-    .then(albumData => {
-      let {photos, title, user} = albumData;
+  let albumData = await getExpandedAlbumById(albumId);
+  let {photos, title, user} = albumData;
 
-      let dataObj = {
-        photos: photos, 
-        albumTitle: title, 
-        userId: user.id, 
-        userName: user.name,
-      }
+  let dataObj = {
+    photos: photos, 
+    albumTitle: title, 
+    userId: user.id, 
+    userName: user.name,
+  }
 
-      album(dataObj);
-    })
+  album(dataObj);
 }
 
 init();
