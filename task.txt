@@ -108,7 +108,6 @@ Papildoma:
 13.4.2. Su šiais duomenimis išsiųsti PUT užklausą pagal API reikalavimus.
 13.4.3. Iš užklausos atsakymo gautų duomenų suformoluoti HTML elementą ir juos išvesti į ekraną.
 
-
 KOMENTARAI:
 14.1.1. Po posto komentarais, sukurti formą, kurioje būtų galima sukurti naują komentarą.
 14.1.2. Sukurtą komentarą nusiųsti į API (POST metodas).
